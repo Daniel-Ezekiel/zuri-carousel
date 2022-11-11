@@ -1,179 +1,68 @@
-/* Box Model Hack */
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
-/* Clear fix hack */
-.clearfix:after {
-     content: ".";
-     display: block;
-     clear: both;
-     visibility: hidden;
-     line-height: 0;
-     height: 0;
-}
-
-.clear {
-	clear: both;
-}
-
-
-/******************************************
-/* LAYOUT
-/*******************************************/
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  width: 100vw;
-  height: 100vh;
-  border: solid 4px green;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-/*Left + Right Triggers*/
-
-.trig {
-  width: 25px;
-  height: 35px;
-  background-color: beige;
-  border: solid 2px;
-  position: absolute;
-  border-radius: 3px;
-  top: 100px;
-}
-
-.trig:hover {
-  cursor: pointer;
-}
-
-.l-trig {
-  left: -35px;
-}
-
-.r-trig {
-  right: -35px;
-}
-
-.l-trig span:nth-child(1) {
-  background-color: red;
-  position: absolute;
-  width: 5px;
-  height: 65%;
-  transform: rotate(45deg);
-  top: 0;
-  left: 7px;
-  border-radius: 3px;
-}
-
-.l-trig span:nth-child(2) {
-  background-color: red;
-  position: absolute;
-  width: 5px;
-  height: 65%;
-  transform: rotate(-45deg);
-  bottom: 0;
-  left: 7px;
-  border-radius: 3px;
-}
-
-.r-trig span:nth-child(1) {
-  background-color: red;
-  position: absolute;
-  width: 5px;
-  height: 65%;
-  transform: rotate(-45deg);
-  top: 0;
-  right: 7px;
-  border-radius: 3px;
-}
-
-.r-trig span:nth-child(2) {
-  background-color: red;
-  position: absolute;
-  width: 5px;
-  height: 65%;
-  transform: rotate(45deg);
-  bottom: 0;
-  right: 7px;
-  border-radius: 3px;
-}
-main {
-  width: 250px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
+.carousel {
   position: relative;
-  background-color: lightgrey;
-  border-radius: 5px;
+  width: 200px;
+  height: 150px; 
+  margin: 0 auto;
 }
-#display_img {
-  position: absolute;
-  top: 0;
-  border: solid 2px;
-  width: 90px;
-  height: 135px;
-  margin-top: 5px;
+
+.carousel-content {
+  position: relative;
+  overflow: hidden;
+  transition: width .4s;
+  height: 100%;
+  width: 100%;
 }
+
 img{
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.gal_img {
-  width: 35px;
-  height: 50px;
-  border: solid 2px;
-  position: relative;
-  bottom: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
+
+.slide {
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+  transition: left .4s cubic-bezier(.47,.13,.15,.89);
 }
-.gal_img:hover {
+
+.nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  background-color: rgba(150,150,150,.3);
+  width: 20px;
+  height: 20px;
+  z-index: 2;
   cursor: pointer;
-}
-@media only screen and (min-width: 768px) {
-  main {
-    width: 500px;
-    height: 400px;
-    display: flex;
-    background-color: lightgrey;
-    justify-content: center;
-    align-items: flex-end;
-    position: relative;
-  }
-  #display_img {
-    position: absolute;
-    top: 0;
-    border: solid 2px;
-    width: 180px;
-    height: 270px;
-  }
-  .gal_img {
-    width: 70px;
-    height: 100px;
-    position: relative;
-    bottom: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  .gal_img:hover {
-    cursor: pointer;
-  }
-  .trig {
-    top: 230px;
-  }
-  .trig:hover {
-    cursor: pointer;
-  }
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: white;
+  -webkit-user-select: none;
 }
 
+.nav-left {
+  left: -25px;
+}
 
-/******************************************
-/* ADDITIONAL STYLES
-/*******************************************/
+.nav-right {
+  right: -25px;
+}
+
+.carousel-arrow-icon-left {
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.carousel-arrow-icon-right {
+  margin-left: 7px;
+  margin-top: 2px;
+}
